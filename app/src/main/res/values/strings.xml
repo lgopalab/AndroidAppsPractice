@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TripsApp</string>
+    <string name="signin_button">Sign-In with Google</string>
+    <string name="title_activity_user_home">UserHomeActivity</string>
+    <string name="signOut_button">Sign out</string>
+    <string name="friends_button">Friends</string>
+    <string name="profile_button">Profile</string>
+    <string name="trips_button">Trips</string>
+    <string name="firstname_label">First name</string>
+    <string name="lastname_label">Last name</string>
+    <string name="email_label">E-mail</string>
+    <string name="gender_label">Gender</string>
+    <string name="login_email_label">E-mail</string>
+    <string name="login_passsword_label">Password</string>
+</resources>
