@@ -1,6 +1,7 @@
 package com.example.mahi.tripsapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import android.widget.TextView;
 
 import com.example.mahi.tripsapp.FriendsActivity;
 import com.example.mahi.tripsapp.R;
+import com.example.mahi.tripsapp.TripChatActivity;
 import com.example.mahi.tripsapp.classes.Trip;
 import com.example.mahi.tripsapp.classes.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,6 +50,7 @@ public class TripAdapter extends RecyclerView.Adapter {
             trip_image=(ImageView) view.findViewById(R.id.trip_image);
             add_friend=(ImageView) view.findViewById(R.id.friend_add);
             remove_trip=(ImageView) view.findViewById(R.id.trip_remove);
+            remove_trip.setVisibility(View.GONE);
             rootView = view;
         }
 
@@ -78,6 +82,21 @@ public class TripAdapter extends RecyclerView.Adapter {
 
             }
         });
+
+        ((ViewHolder)holder).trip_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, TripChatActivity.class);
+                intent.putExtra("trip_id",trip.getID());
+                context.startActivity(intent);
+            }
+        });
+
+        if(FirebaseAuth.getInstance().getCurrentUser().getUid().equals(trip.getCreated_by()))
+        {
+            ((ViewHolder)holder).remove_trip.setVisibility(View.VISIBLE);
+        }
+
 
 
 

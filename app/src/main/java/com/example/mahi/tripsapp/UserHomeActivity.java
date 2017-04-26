@@ -22,7 +22,7 @@ public class UserHomeActivity extends AppCompatActivity {
 
     private Button signOut,friends_button,profile_button,trips_button;
     private FirebaseAuth mAuth;
-    DatabaseReference database,usersReference,userReference;
+    DatabaseReference usersReference;
     User current_user;
     boolean user_added;
 

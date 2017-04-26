@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TabHost;
 
 import com.example.mahi.tripsapp.adapters.FriendsAdapter;
 import com.example.mahi.tripsapp.adapters.TripAdapter;
@@ -43,6 +44,19 @@ public class TripsActivity extends AppCompatActivity {
         addTrip = (ImageView) findViewById(R.id.trip_add);
         tripName = (EditText) findViewById(R.id.trip_add_name);
         tripsRecycler = (RecyclerView) findViewById(R.id.trips_recycler);
+
+        TabHost tabHost = (TabHost) findViewById(R.id.tripsTab);
+        tabHost.setup();
+
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("memberTripTab");
+        tabSpec.setContent(R.id.trips_member);
+        tabSpec.setIndicator("My Trips");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("pendingListTab");
+        tabSpec.setContent(R.id.trips_disc);
+        tabSpec.setIndicator("Discover");
+        tabHost.addTab(tabSpec);
 
 
         mAuth = FirebaseAuth.getInstance();

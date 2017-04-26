@@ -66,4 +66,15 @@ public class Message {
 
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "sent_by='" + sent_by + '\'' +
+                ", time='" + time + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", message='" + message + '\'' +
+                ", delete_list=" + delete_list +
+                '}';
+    }
 }
