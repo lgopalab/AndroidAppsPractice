@@ -51,7 +51,6 @@ public class FriendsActivity extends AppCompatActivity {
                 if(dataSnapshot.hasChild("friends"))
                 {
                     friends =(Map<String,Boolean>) dataSnapshot.child("friends").getValue();
-                    Log.d("friends",friends.toString());
                 }
             }
 
